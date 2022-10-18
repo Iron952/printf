@@ -22,7 +22,7 @@ int _printf(const char *format, ...)
 	if (!format)
 		return (-1); /* for error*/
 	va_start(arg, format);
-	while (format && format[i] != '\0')
+	while (format && format[i] != '\0') /* While there is an argument*/
 	{
 		if (format[i] == '%') /* check if we have that “%” sign */
 		{
