@@ -12,10 +12,10 @@ int _printf(const char *format, ...)
 	int i = 0, j = 0, buff_count = 0, prev_buff_count = 0;
 	char buffer[2000];
 	va_list arg; /*this is for the arguments*/
-	call_t container[] = { /* container for other functions */
-		{'c', printf_char}, {'s', charS_func}, {'i', int_func}, {'d', int_func},
+	call_a container[] = { /* container for other functions */
+		{'c', printf_char}, {'s', printf_str}, {'i', int_func}, {'d', int_func},
 		{'%', sign_func}, {'b', binary_func}, {'o', octal_func}, {'x', hexidec_func},
-		{'X', other_func}, {'u', unint_func}, {'R', R_func}, {'r', rev_func},
+		{'X', other_func}, {'u', unint_func}, {'R', printf_rot13}, {'r', printf_srev},
 		{'\0', NULL}
 	};
 
