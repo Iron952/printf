@@ -19,9 +19,9 @@
 
 typedef struct call
 {
-	char a;
-	int (*b)(char *, va_list, int);
-} call_a;
+	char t;
+	int (*f)(char *, va_list, int);
+} call_t;
 
 int int_func(char *buff_dest, va_list list, int buff_count);
 int printf_pointer(va_list val);
