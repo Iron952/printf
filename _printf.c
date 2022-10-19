@@ -13,7 +13,7 @@ int _printf(const char *format, ...)
 	char buffer[2000];
 	va_list arg; /*this is for the arguments*/
 	call_t container[] = { /* container for other functions */
-		{'c', char_func}, {'s', charS_func}, {'i', int_func}, {'d', int_func},
+		{'c', printf_char}, {'s', charS_func}, {'i', int_func}, {'d', int_func},
 		{'%', sign_func}, {'b', binary_func}, {'o', octal_func}, {'x', hexidec_func},
 		{'X', other_func}, {'u', unint_func}, {'R', R_func}, {'r', rev_func},
 		{'\0', NULL}
