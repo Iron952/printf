@@ -1,5 +1,6 @@
 #ifndef MAIN.H
 #define MAIN.H
+#define INT_BYTES (8 * 4)
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -16,11 +17,11 @@
  *
  */
 
-typedef struct format
+typedef struct call
 {
-	char *id;
-	int (*f)();
-} convert_match;
+	char a;
+	int (*b)(char *, va_list, int);
+} call_a;
 
 int printf_pointer(va_list val);
 int printf_hex_aux(unsigned long int num);
