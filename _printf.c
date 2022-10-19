@@ -11,27 +11,25 @@ int _printf(const char *format, ...)
 {
 	int i = 0, j = 0, buff_count = 0, prev_buff_count = 0;
 	char buffer[2000];
-	va_list arg; /*this is for the arguments*/
-	call_t container[] = { /* the arguments here */
-		{'c', char_func}, {'s', char[]_func}, {'i', int_func}, {'d', int_func},
-		{'%', sign_func}, {'b', binary_func}, {'o', oct_func}, {'x', hexidec_func},
-		{'X', other_func}, {'u', uint_func}, {'R', R_func}, {'r', rev_func},
+	va_list arg;
+	call_t container[] = {
+		{'c', parse_char}, {'s', parse_str}, {'i', parse_int}, {'d', parse_int},
+		{'%', parse_perc}, {'b', parse_bin}, {'o', parse_oct}, {'x', parse_hex},
+		{'X', parse_X}, {'u', parse_uint}, {'R', parse_R13}, {'r', parse_rev},
 		{'\0', NULL}
 	};
 
 	if (!format)
-		return (-1); /* for error*/
+		return (-1);
 	va_start(arg, format);
 	while (format && format[i] != '\0')
 	{
-		if (format[i] == '%') /* check if we have that “%” sign */
+		if (format[i] == '%')
 		{
-			i++;
-			prev_buff_count = buff_count; /*this will be for the later one */
-			for (j = 0; container[j].t != '\0'; j++) /*this loop will loop through till we reach the null character*/
+			i++, prev_buff_count = buff_count;
+			for (j = 0; container[j].t != '\0'; j++)
 			{
-				/* self explaining */
-				if (format[i] == '\0') 
+				if (format[i] == '\0')
 					break;
 				if (format[i] == container[j].t)
 				{
