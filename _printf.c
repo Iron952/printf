@@ -12,14 +12,14 @@ int _printf(const char *format, ...)
 	int i = 0, j = 0, buff_count = 0, prev_buff_count = 0;
 	char buffer[2000];
 	va_list arg; /*this is for the arguments*/
-	call_t container[] = { /* the arguments here */
+	call_t container[] = { /* container for other functions */
 		{'c', char_func}, {'s', char[]_func}, {'i', int_func}, {'d', int_func},
-		{'%', sign_func}, {'b', binary_func}, {'o', oct_func}, {'x', hexidec_func},
-		{'X', other_func}, {'u', uint_func}, {'R', R_func}, {'r', rev_func},
+		{'%', sign_func}, {'b', binary_func}, {'o', octal_func}, {'x', hexidec_func},
+		{'X', other_func}, {'u', unint_func}, {'R', R_func}, {'r', rev_func},
 		{'\0', NULL}
 	};
 
-	if (!format)
+	if (!format) /* in the event there isn't an argument*/
 		return (-1); /* for error*/
 	va_start(arg, format);
 	while (format && format[i] != '\0') /* While there is an argument*/
@@ -27,7 +27,7 @@ int _printf(const char *format, ...)
 		if (format[i] == '%') /* check if we have that “%” sign */
 		{
 			i++;
-			prev_buff_count = buff_count; /*this will be for the later one */
+			prev_buff_count = buff_count; /*this will be for the later one, kinda like making it catch up */
 			for (j = 0; container[j].t != '\0'; j++) /*this loop will loop through till we reach the null character*/
 			{
 				/* self explaining */
