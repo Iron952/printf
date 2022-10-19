@@ -74,4 +74,4 @@ int main(void)
 .SH SEE ALSO
 .R printf(3)
 .SH AUTHORS
-Written by Anita Omar (Iron952) and Philani Sibanyoni (Philani12)
+Written by \fBAnita Omar (Iron952)\fR and \fBPhilani Sibanyoni (Philani12)\fR.
