@@ -1,6 +1,6 @@
 #ifndef MAIN.H
 #define MAIN.H
-#define INT_BYTES (8 * 4)
+#define INT_BYTS (8 * 4)
 
 #include <stdio.h>
 #include <stdlib.h>
